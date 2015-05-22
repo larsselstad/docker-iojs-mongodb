@@ -1,0 +1,16 @@
+{
+  "name": "docker-iojs-mongodb",
+  "version": "1.0.0",
+  "description": "Demo for setting up a docker container for mongodb and one for iojs/nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node testConnection.js"
+  },
+  "keywords": [
+    "docker",
+    "mongodb",
+    "iojs"
+  ],
+  "author": "Lars Selstad",
+  "license": "ISC"
+}
