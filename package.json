@@ -1,16 +1,24 @@
 {
-  "name": "docker-iojs-mongodb",
-  "version": "1.0.0",
-  "description": "Demo for setting up a docker container for mongodb and one for iojs/nodejs",
-  "main": "index.js",
-  "scripts": {
-    "test": "node testConnection.js"
-  },
-  "keywords": [
+    "name": "docker-iojs-mongodb",
+    "version": "1.0.0",
+    "description": "Demo for setting up a docker container for mongodb and one for iojs/nodejs",
+    "main": "index.js",
+    "scripts": {
+        "test": "node test.js",
+        "find": "node scripts/findAll.js",
+        "insert": "node scripts/insert.js",
+        "d-mongo": "docker run --name mongo1 -p 27017:27017 -d mongo",
+        "d-mongo-save": "docker run --name mongo1 -v \"$(pwd)\"/mongo-data:/data/db -p 27017:27017 -d mongo",
+        "d-iojs-run": "docker run -it --name iojs -v \"$(pwd)\":/data --link mongo1:mongo1 -w /data iojs bash || docker exec -it iojs bash"
+    },
+    "keywords": [
     "docker",
     "mongodb",
     "iojs"
   ],
-  "author": "Lars Selstad",
-  "license": "ISC"
+    "dependencies": {
+        "mongodb": "^2.0.33"
+    },
+    "author": "Lars Selstad",
+    "license": "ISC"
 }
